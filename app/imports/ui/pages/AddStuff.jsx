@@ -49,7 +49,7 @@ class AddStuff extends React.Component {
             <Header as="h2" textAlign="center">Add Stuff</Header>
             <AutoForm ref={ref => { fRef = ref; }} schema={formSchema} onSubmit={data => this.submit(data, fRef)} >
               <Segment>
-                <TextField name='name'/>
+                <TextField/>
                 <NumField name='quantity' decimal={false}/>
                 <SelectField name='condition'/>
                 <SubmitField value='Submit'/>
