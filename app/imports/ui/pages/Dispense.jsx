@@ -24,10 +24,18 @@ class Dispense extends React.Component {
       expire: undefined,
       dispensedTo: undefined,
       dispensedFrom: undefined,
+      inventoryType: undefined,
     };
     this.unitOptions = [
       { key: '0', text: 'tabs', value: 'tabs' },
       { key: '1', text: 'mL', value: 'mL' },
+    ];
+    this.reasonOptions = [
+      { key: '0', text: '', value: '' },
+      { key: '1', text: 'Patient Use', value: 'Patient Use' },
+      { key: '2', text: 'Expired', value: 'Expired' },
+      { key: '3', text: 'Broken/Contaminated', value: 'Broken/Contaminated' },
+      { key: '4', text: 'Lost', value: 'Lost' },
     ];
   }
 
@@ -81,7 +89,7 @@ class Dispense extends React.Component {
           <Form onSubmit={this.submit}>
             <Segment text style={{ marginTop: '1em' }}>
             {/* dispense info */}
-              <Grid columns='three' >
+              <Grid columns='equal' >
                 <Grid.Row>
                   <Grid.Column>
                     <Form.Input type="date" label='Date Dispensed' name='dateDispensed' onChange={this.handleChange} value={this.state.dateDispensed}/>
@@ -89,9 +97,20 @@ class Dispense extends React.Component {
                 <Grid.Column>
                   <Form.Input label='Dispensed By' name='dispensedFrom' onChange={this.handleChange} value={this.state.dispensedFrom}/>
                 </Grid.Column>
-                <Grid.Column>
-                  <Form.Input label='Dispensed To' name='dispensedTo' onChange={this.handleChange} value={this.state.dispensedTo}/>
-                </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column>
+                    <Form.Select label='Inventory Type' name='inventoryType' onChange={this.handleChange} value={this.state.inventoryType}/>
+                  </Grid.Column>
+                </Grid.Row>
+                  <Grid.Row>
+                  <Grid.Column>
+                    <Form.Select label='Reason for Dispense' name='reasonDispense' options={this.reasonOptions}/>
+                  </Grid.Column>
+                  <Grid.Column>
+                    <Form.Input label='Dispensed To' placeholder="Patient's First Name, Last Name"
+                                name='dispensedTo' onChange={this.handleChange} value={this.state.dispensedTo}/>
+                  </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
                   <Grid.Column>
