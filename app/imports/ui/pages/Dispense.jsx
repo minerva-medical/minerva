@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Header, Form, Button, Container, Loader } from 'semantic-ui-react';
+import { Grid, Header, Form, Button, Container, Loader, Segment } from 'semantic-ui-react';
 // import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -68,51 +68,62 @@ class Dispense extends React.Component {
   /** Render the form. */
   renderPage() {
     return (
-        <Container id='dispense-form'>
+        <Container id='dispense-form' text style={{ marginTop: '1em' }}>
           <Header as="h2">
             <Header.Content>
               Dispense from Inventory Form
               <Header.Subheader>
-                Please input the following information to dispense from the inventory,
-                to the best of your abilities.
+                <i>Please input the following information to dispense from the inventory,
+                  to the best of your abilities.</i>
               </Header.Subheader>
             </Header.Content>
           </Header>
           <Form onSubmit={this.submit}>
-            <Grid>
-              {/* dispense info */}
-              <Grid.Row>
-                <Grid.Column width={6}>
-                  <Form.Input type="date" label='Date Dispensed' inline name='dateDispensed' onChange={this.handleChange} value={this.state.dateDispensed}/>
+            <Segment text style={{ marginTop: '1em' }}>
+            {/* dispense info */}
+              <Grid columns='three' >
+                <Grid.Row>
+                  <Grid.Column>
+                    <Form.Input type="date" label='Date Dispensed' name='dateDispensed' onChange={this.handleChange} value={this.state.dateDispensed}/>
+                  </Grid.Column>
+                <Grid.Column>
+                  <Form.Input label='Dispensed By' name='dispensedFrom' onChange={this.handleChange} value={this.state.dispensedFrom}/>
                 </Grid.Column>
-                <Grid.Column width={5}>
-                  <Form.Input label='Dispensed To' inline name='dispensedTo' onChange={this.handleChange} value={this.state.dispensedTo}/>
-                  <Form.Input label='Dispensed By' inline name='dispensedFrom' onChange={this.handleChange} value={this.state.dispensedFrom}/>
+                <Grid.Column>
+                  <Form.Input label='Dispensed To' name='dispensedTo' onChange={this.handleChange} value={this.state.dispensedTo}/>
                 </Grid.Column>
-                <Grid.Column width={5}>
-                  <Form.Select label='Site' inline options={this.getOptions('site')} name='site' onChange={this.handleChange} value={this.state.site}/>
-                </Grid.Column>
-              </Grid.Row>
-              {/* drug info */}
-              <Grid.Row>
-                <Grid.Column width={6}>
-                  <Form.Select label='Drug Name' inline options={this.getOptions('drug')} name='drug' onChange={this.handleChange} value={this.state.drug}/>
-                </Grid.Column>
-                <Grid.Column width={5}>
-                  <Form.Select label='Lot Number' inline options={this.getOptions('lotId')} name='lotId' onChange={this.handleChange} value={this.state.lotId}/>
-                  <Form.Input type='date' label='Expiration Date' inline name='expire' onChange={this.handleChange} value={this.state.expire}/>
-                </Grid.Column>
-                <Grid.Column width={5}>
-                  <Form.Select label='Brand' inline options={this.getOptions('brand')} name='brand' onChange={this.handleChange} value={this.state.brand}/>
-                  <Form.Group>
-                    <Form.Input type='number' min={1} label='Quantity' inline name='quantity' onChange={this.handleChange} value={this.state.quantity}/>
-                    <Form.Select className='unit-select' options={this.unitOptions} />
-                  </Form.Group>
-                </Grid.Column>
-              </Grid.Row>
-            </Grid>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column>
+                    <Form.Select label='Site' options={this.getOptions('site')} name='site' onChange={this.handleChange} value={this.state.site}/>
+                  </Grid.Column>
+                  {/* drug info */}
+                  <Grid.Column>
+                  <Form.Select label='Drug Name' options={this.getOptions('drug')} name='drug' onChange={this.handleChange} value={this.state.drug}/>
+                  </Grid.Column>
+                  <Grid.Column>
+                  <Form.Select label='Lot Number' options={this.getOptions('lotId')} name='lotId' onChange={this.handleChange} value={this.state.lotId}/>
+                  </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column>
+                    <Form.Input type='date' label='Expiration Date' name='expire' onChange={this.handleChange} value={this.state.expire}/>
+                  </Grid.Column>
+                  <Grid.Column>
+                    <Form.Select label='Brand' options={this.getOptions('brand')} name='brand' onChange={this.handleChange} value={this.state.brand}/>
+                  </Grid.Column>
+                  <Grid.Column>
+                    <Form.Group>
+                      <Form.Input type='number' width={10} min={1} label='Quantity' name='quantity' onChange={this.handleChange} value={this.state.quantity}/>
+                      <Form.Select label='Unit' className='unit-select' options={this.unitOptions} width={4} fluid/>
+                    </Form.Group>
+                    </Grid.Column>
+                </Grid.Row>
+              </Grid>
+          </Segment>
             <div className='buttons-div'>
-              <Button type='submit'>Submit</Button>
+              <Button type='submit' text style={{marginTop: '1em' }} color="red" size='medium' inverted>Clear Fields</Button>
+              <Button type='submit' text style={{marginTop: '1em' }} color="green" size='medium' floated="right" >Submit</Button>
             </div>
           </Form>
         </Container>
