@@ -20,7 +20,6 @@ const formSchema = new SimpleSchema({
 
 /** Renders the Page for adding stuff. */
 class AddStuff extends React.Component {
-
   /** On submit, insert the data. */
   submit(data, formRef) {
     // console.log('AddStuff.submit', data);
@@ -28,16 +27,16 @@ class AddStuff extends React.Component {
     const owner = Meteor.user().username;
     // console.log(`{ ${name}, ${quantity}, ${condition}, ${owner} }`);
     stuffDefineMethod.call({ name, quantity, condition, owner },
-      (error) => {
-        if (error) {
-          swal('Error', error.message, 'error');
-          // console.error(error.message);
-        } else {
-          swal('Success', 'Item added successfully', 'success');
-          formRef.reset();
-          // console.log('Success');
-        }
-      });
+        (error) => {
+          if (error) {
+            swal('Error', error.message, 'error');
+            // console.error(error.message);
+          } else {
+            swal('Success', 'Item added successfully', 'success');
+            formRef.reset();
+            // console.log('Success');
+          }
+        });
   }
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
@@ -47,15 +46,17 @@ class AddStuff extends React.Component {
         <Grid container centered>
           <Grid.Column>
             <Header as="h2" textAlign="center">Add Stuff</Header>
-            <AutoForm ref={ref => { fRef = ref; }} schema={formSchema} onSubmit={data => this.submit(data, fRef)} >
-              <Segment>
-                <TextField name='name'/>
-                <NumField name='quantity' decimal={false}/>
-                <SelectField name='condition'/>
-                <SubmitField value='Submit'/>
-                <ErrorsField/>
-              </Segment>
-            </AutoForm>
+              <AutoForm ref={ref => {
+                fRef = ref;
+              }} schema={formSchema} onSubmit={data => this.submit(data, fRef)}>
+                <Segment>
+                  <TextField name='name'/>
+                  <NumField name='quantity' decimal={false}/>
+                  <SelectField name='condition'/>
+                  <SubmitField value='Submit'/>
+                  <ErrorsField/>
+                </Segment>
+              </AutoForm>
           </Grid.Column>
         </Grid>
     );
