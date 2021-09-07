@@ -92,20 +92,26 @@ class Dispense extends React.Component {
               <Grid columns='equal' >
                 <Grid.Row>
                   <Grid.Column>
-                    <Form.Input type="date" label='Date Dispensed' name='dateDispensed' onChange={this.handleChange} value={this.state.dateDispensed}/>
+                    <Form.Input type="date" label='Date Dispensed' name='dateDispensed'
+                                onChange={this.handleChange} value={this.state.dateDispensed}/>
                   </Grid.Column>
                 <Grid.Column>
-                  <Form.Input label='Dispensed By' name='dispensedFrom' onChange={this.handleChange} value={this.state.dispensedFrom}/>
+                  <Form.Input label='Dispensed By' name='dispensedFrom'
+                              onChange={this.handleChange} value={this.state.dispensedFrom}/>
                 </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
                   <Grid.Column>
-                    <Form.Select label='Inventory Type' name='inventoryType' onChange={this.handleChange} value={this.state.inventoryType}/>
+                    <Form.Select label='Inventory Type' name='inventoryType'
+                                 placeholder="Medication / Vaccination / Patient Supplies / Lab Testing Supplies"
+                                 onChange={this.handleChange} value={this.state.inventoryType}/>
                   </Grid.Column>
                 </Grid.Row>
                   <Grid.Row>
                   <Grid.Column>
-                    <Form.Select label='Reason for Dispense' name='reasonDispense' options={this.reasonOptions}/>
+                    <Form.Select label='Reason for Dispense' name='reasonDispense'
+                                 placeholder="Patient Use / Expired / Broken / Lost"
+                                 options={this.reasonOptions}/>
                   </Grid.Column>
                   <Grid.Column>
                     <Form.Input label='Dispensed To' placeholder="Patient's First Name, Last Name"
@@ -114,35 +120,52 @@ class Dispense extends React.Component {
                 </Grid.Row>
                 <Grid.Row>
                   <Grid.Column>
-                    <Form.Select label='Site' options={this.getOptions('site')} name='site' onChange={this.handleChange} value={this.state.site}/>
+                    <Form.Select label='Site' options={this.getOptions('site')}
+                                 placeholder="POST, Kaka’ako, etc."
+                                 name='site' onChange={this.handleChange} value={this.state.site}/>
                   </Grid.Column>
                   {/* drug info */}
                   <Grid.Column>
-                  <Form.Select label='Drug Name' options={this.getOptions('drug')} name='drug' onChange={this.handleChange} value={this.state.drug}/>
+                  <Form.Select label='Drug Name' options={this.getOptions('drug')}
+                               name='drug' onChange={this.handleChange} value={this.state.drug}/>
                   </Grid.Column>
                   <Grid.Column>
-                  <Form.Select label='Lot Number' options={this.getOptions('lotId')} name='lotId' onChange={this.handleChange} value={this.state.lotId}/>
+                  <Form.Select label='Lot Number' options={this.getOptions('lotId')}
+                               name='lotId' onChange={this.handleChange} value={this.state.lotId}/>
                   </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
                   <Grid.Column>
-                    <Form.Input type='date' label='Expiration Date' name='expire' onChange={this.handleChange} value={this.state.expire}/>
+                    <Form.Input type='date' label='Expiration Date'
+                                name='expire' onChange={this.handleChange} value={this.state.expire}/>
                   </Grid.Column>
                   <Grid.Column>
-                    <Form.Select label='Brand' options={this.getOptions('brand')} name='brand' onChange={this.handleChange} value={this.state.brand}/>
+                    <Form.Select label='Brand' options={this.getOptions('brand')}
+                                 name='brand' onChange={this.handleChange} value={this.state.brand}/>
                   </Grid.Column>
                   <Grid.Column>
                     <Form.Group>
-                      <Form.Input type='number' width={10} min={1} label='Quantity' name='quantity' onChange={this.handleChange} value={this.state.quantity}/>
-                      <Form.Select label='Unit' className='unit-select' options={this.unitOptions} width={4} fluid/>
+                      <Form.Input type='number' width={10} min={1} label='Quantity'
+                                  name='quantity' onChange={this.handleChange} value={this.state.quantity}/>
+                      <Form.Select label='Unit' className='unit-select'
+                                   options={this.unitOptions} width={4} fluid/>
                     </Form.Group>
                     </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column>
+                    <Form.Input label='Additional Notes'control='textarea' rows={2}
+                                onChange={this.handleChange} value={this.state.notes}>
+                    </Form.Input>
+                  </Grid.Column>
                 </Grid.Row>
               </Grid>
           </Segment>
             <div className='buttons-div'>
-              <Button type='submit' text style={{marginTop: '1em' }} color="red" size='medium' inverted>Clear Fields</Button>
-              <Button type='submit' text style={{marginTop: '1em' }} color="green" size='medium' floated="right" >Submit</Button>
+              <Button type='submit' text style={{ marginTop: '1em' }}
+                      color="red" size='medium' inverted>Clear Fields</Button>
+              <Button type='submit' text style={{ marginTop: '1em' }}
+                      color="green" size='medium' floated="right" >Submit</Button>
             </div>
           </Form>
         </Container>
