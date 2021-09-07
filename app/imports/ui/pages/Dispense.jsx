@@ -1,4 +1,4 @@
-import React from 'react';
+  import React from 'react';
 import { Grid, Header, Form, Button, Container, Loader, Segment } from 'semantic-ui-react';
 // import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
@@ -36,6 +36,13 @@ class Dispense extends React.Component {
       { key: '2', text: 'Expired', value: 'Expired' },
       { key: '3', text: 'Broken/Contaminated', value: 'Broken/Contaminated' },
       { key: '4', text: 'Lost', value: 'Lost' },
+    ];
+    this.invenType = [
+      { key: '0', text: '', value: '' },
+      { key: '1', text: 'Medication', value: 'Medication' },
+      { key: '2', text: 'Vaccination', value: 'Vaccination' },
+      { key: '3', text: 'Patient Supplies', value: 'Patient Supplies' },
+      { key: '4', text: 'Lab Testing Supplies', value: 'Lab Testing Supplies' },
     ];
   }
 
@@ -104,7 +111,8 @@ class Dispense extends React.Component {
                   <Grid.Column>
                     <Form.Select label='Inventory Type' name='inventoryType'
                                  placeholder="Medication / Vaccination / Patient Supplies / Lab Testing Supplies"
-                                 onChange={this.handleChange} value={this.state.inventoryType}/>
+                                 onChange={this.handleChange} value={this.state.inventoryType}
+                    options={this.invenType}/>
                   </Grid.Column>
                 </Grid.Row>
                   <Grid.Row>
