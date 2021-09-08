@@ -16,6 +16,7 @@ import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
 import Dispense from '../pages/Dispense';
+import AddInventory from '../pages/AddInventory';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -29,7 +30,12 @@ class App extends React.Component {
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
               <ProtectedRoute path="/list" component={ListStuff}/>
+<<<<<<< Updated upstream
               <ProtectedRoute path="/add" component={Add}/>
+=======
+              <ProtectedRoute path="/add" component={AddStuff}/>
+              <ProtectedRoute path="/addinventory" component={AddInventory}/>
+>>>>>>> Stashed changes
               <ProtectedRoute path="/dispense" component={Dispense}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
               <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
