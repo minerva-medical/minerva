@@ -25,7 +25,7 @@ class DrugPage extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     const drugBox = {
-      backgroundColor: 'lightblue',
+      backgroundColor: 'white',
       borderRadius: '15px',
       padding: '20px',
       paddingLeft: '50px',
@@ -33,7 +33,7 @@ class DrugPage extends React.Component {
       margin: '10px 135px 10px 135px',
     };
     const notes = {
-      backgroundColor: 'white',
+      backgroundColor: 'lightblue',
       borderRadius: '15px',
       padding: '20px',
       marginTop: '15px',
