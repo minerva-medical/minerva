@@ -15,7 +15,7 @@ class Footer extends React.Component {
         <footer>
           <div style={divStyle} className="ui center aligned container fluid">
             <hr/>
-            <Header inverted as='h3'>Designed by Medical Minerva</Header>
+            <Header inverted as='h3'>Designed by Minerva Medical</Header>
             <a style={{ color: 'lightblue' }} href="https://minerva-medical.github.io" target='_blank' rel='noreferrer'>
               Our Project Page</a>
           </div>
