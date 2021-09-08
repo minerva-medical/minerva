@@ -14,8 +14,6 @@ import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Stuffs } from '../../api/stuff/StuffCollection';
 
-// import StuffItem from '../components/StuffItem';
-
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class DrugPage extends React.Component {
 
@@ -30,13 +28,19 @@ class DrugPage extends React.Component {
       backgroundColor: 'lightblue',
       borderRadius: '15px',
       padding: '20px',
-      margin: '10px',
+      paddingLeft: '50px',
+      paddingRight: '50px',
+      margin: '10px 135px 10px 135px',
     };
     const notes = {
       backgroundColor: 'white',
       borderRadius: '15px',
       padding: '20px',
+      marginTop: '15px',
+      marginLeft: '10px',
+      marginRight: '-40px',
     };
+
     return (
         <Container>
           <Header as="h2" textAlign="center">Drug Page</Header>
@@ -49,18 +53,18 @@ class DrugPage extends React.Component {
                       <Header as='h2'> Aspirin 81 mg</Header>
                       <ItemMeta>Nonsteroidal anti-inflammatory drug (NSAID)</ItemMeta>
                       <ItemDescription>
-                        <List animated size='large'>
+                        <List size='large'>
                           <ListItem>Brand: Bayer</ListItem>
                           <ListItem>Lot Number: 123456</ListItem>
                           <ListItem>Expiration Date: 09/16/2021</ListItem>
                           <ListItem>Quantity: 30 tabs</ListItem>
                           <ListItem>Supply: 300</ListItem>
                           <ListItem>Storage Location: Case 4</ListItem>
-                          <ListItem>Received: Purchased</ListItem>
+                          <ListItem>Received: Purchased</ListItem> <br/>
                         </List>
                       </ItemDescription>
                       <ItemExtra>
-                        <Button size='small'>Edit</Button>
+                        <Button size='medium'>Edit</Button>
                       </ItemExtra>
                     </ItemContent>
                   </Item>
@@ -68,15 +72,18 @@ class DrugPage extends React.Component {
               </GridColumn>
               <GridColumn>
                 <Segment style={notes}>
-                  <ItemGroup>
-                    <Item>
-                      <ItemContent>
-                        <Header as='h3'>Notes</Header>
-                        <ItemDescription>To be prescribed to patients that are at risk for myocardial infarction or
-                          stroke. Prescribed as take 1 tab daily.</ItemDescription>
-                      </ItemContent>
-                    </Item>
-                  </ItemGroup>
+                  <Container fluid>
+                    <ItemGroup>
+                      <Item>
+                        <ItemContent>
+                          <Header as='h3'>Notes</Header>
+                          <ItemDescription>To be prescribed to patients that are at risk for myocardial infarction or
+                            stroke. Prescribed as take 1 tab daily.
+                          </ItemDescription>
+                        </ItemContent>
+                      </Item>
+                    </ItemGroup>
+                  </Container>
                 </Segment>
               </GridColumn>
             </Grid>
