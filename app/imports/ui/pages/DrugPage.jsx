@@ -33,7 +33,7 @@ class DrugPage extends React.Component {
       margin: '10px 135px 10px 135px',
     };
     const notes = {
-      backgroundColor: 'lightblue',
+      backgroundColor: '#DCDED1',
       borderRadius: '15px',
       padding: '20px',
       marginTop: '15px',
