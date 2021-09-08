@@ -37,6 +37,13 @@ class Add extends React.Component {
       { key: '0', text: 'Purchased', value: 'Purchased' },
       { key: '1', text: 'Donated', value: 'Donated' },
     ];
+    this.invenType = [
+      { key: '0', text: '', value: '' },
+      { key: '1', text: 'Medication', value: 'Medication' },
+      { key: '2', text: 'Vaccination', value: 'Vaccination' },
+      { key: '3', text: 'Patient Supplies', value: 'Patient Supplies' },
+      { key: '4', text: 'Lab Testing Supplies', value: 'Lab Testing Supplies' },
+    ];
   }
 
   /** TODO: cleaner logic? */
@@ -102,21 +109,28 @@ class Add extends React.Component {
                 </Grid.Row>
                 <Grid.Row>
                   <Grid.Column>
-                    <Form.Select label='Add Type' name='addType' options={this.addTypeOptions} value={this.state.addType}/>
+                    <Form.Select label='Add Type' name='addType' options={this.addTypeOptions}
+                                 placeholder="Purchased / Donated"
+                                 value={this.state.addType}/>
                   </Grid.Column>
                   <Grid.Column>
-                    <Form.Input label='Donor Name (if applicable)' name='donor' options={this.addTypeOptions} value={this.state.donor}/>
+                    <Form.Input label='Donor Name (if applicable)' name='donor'
+                                placeholder="Company Name / Organization Name"
+                                options={this.addTypeOptions} value={this.state.donor}/>
                   </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
                   <Grid.Column>
-                    <Form.Select label='Inventory Type' name='inventoryType' onChange={this.handleChange}
-                                 value={this.state.inventoryType}/>
+                    <Form.Select label='Inventory Type' name='inventoryType'
+                                 placeholder="Medication / Vaccination / Patient Supplies / Lab Testing Supplies"
+                                 onChange={this.handleChange} value={this.state.inventoryType}
+                                 options={this.invenType}/>
                   </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
                   <Grid.Column>
                     <Form.Select label='Site' options={this.getOptions('site')} name='site'
+                                 placeholder="POST, Kaka’ako, etc."
                                  onChange={this.handleChange} value={this.state.site}/>
                   </Grid.Column>
                   <Grid.Column>
