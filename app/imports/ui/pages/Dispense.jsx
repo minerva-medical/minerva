@@ -25,20 +25,19 @@ class Dispense extends React.Component {
       dispensedTo: undefined,
       dispensedFrom: undefined,
       inventoryType: undefined,
+      newSite: undefined,
     };
     this.unitOptions = [
       { key: '0', text: 'tabs', value: 'tabs' },
       { key: '1', text: 'mL', value: 'mL' },
     ];
     this.reasonOptions = [
-      { key: '0', text: '', value: '' },
       { key: '1', text: 'Patient Use', value: 'Patient Use' },
       { key: '2', text: 'Expired', value: 'Expired' },
       { key: '3', text: 'Broken/Contaminated', value: 'Broken/Contaminated' },
       { key: '4', text: 'Lost', value: 'Lost' },
     ];
     this.invenType = [
-      { key: '0', text: '', value: '' },
       { key: '1', text: 'Medication', value: 'Medication' },
       { key: '2', text: 'Vaccination', value: 'Vaccination' },
       { key: '3', text: 'Patient Supplies', value: 'Patient Supplies' },
@@ -67,12 +66,16 @@ class Dispense extends React.Component {
 
   /** convert array to dropdown options */
   getOptions = name => {
-    const options = _.pluck(this.props[`${name}s`], name);
-    return options.map(elem => ({
+    let options = _.pluck(this.props[`${name}s`], name);
+    options = options.map(elem => ({
       key: elem,
       text: elem,
       value: elem,
     }));
+    if (name === 'site') {
+      options.push({ key: 'OTHER', text: 'OTHER', value: 'OTHER' });
+    }
+    return options;
   }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
@@ -102,24 +105,24 @@ class Dispense extends React.Component {
                     <Form.Input type="date" label='Date Dispensed' name='dateDispensed'
                                 onChange={this.handleChange} value={this.state.dateDispensed}/>
                   </Grid.Column>
-                <Grid.Column>
-                  <Form.Input label='Dispensed By' name='dispensedFrom'
-                              onChange={this.handleChange} value={this.state.dispensedFrom}/>
-                </Grid.Column>
+                  <Grid.Column>
+                    <Form.Input label='Dispensed By' name='dispensedFrom'
+                                onChange={this.handleChange} value={this.state.dispensedFrom}/>
+                  </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
                   <Grid.Column>
                     <Form.Select label='Inventory Type' name='inventoryType'
                                  placeholder="Medication / Vaccination / Patient Supplies / Lab Testing Supplies"
                                  onChange={this.handleChange} value={this.state.inventoryType}
-                    options={this.invenType}/>
+                                 options={this.invenType} clearable />
                   </Grid.Column>
                 </Grid.Row>
-                  <Grid.Row>
+                <Grid.Row>
                   <Grid.Column>
                     <Form.Select label='Reason for Dispense' name='reasonDispense'
                                  placeholder="Patient Use / Expired / Broken / Lost"
-                                 options={this.reasonOptions}/>
+                                 options={this.reasonOptions} clearable />
                   </Grid.Column>
                   <Grid.Column>
                     <Form.Input label='Dispensed To' placeholder="Patient's First Name, Last Name"
@@ -128,18 +131,22 @@ class Dispense extends React.Component {
                 </Grid.Row>
                 <Grid.Row>
                   <Grid.Column>
-                    <Form.Select label='Site' options={this.getOptions('site')}
+                    <Form.Select clearable label='Site' options={this.getOptions('site')}
                                  placeholder="POST, Kaka’ako, etc."
                                  name='site' onChange={this.handleChange} value={this.state.site}/>
+                    {
+                      this.state.site === 'OTHER' &&
+                      <Form.Input name='newSite' onChange={this.handleChange} value={this.state.newSite}/>
+                    }
                   </Grid.Column>
                   {/* drug info */}
                   <Grid.Column>
-                  <Form.Select label='Drug Name' options={this.getOptions('drug')}
-                               name='drug' onChange={this.handleChange} value={this.state.drug}/>
+                    <Form.Select clearable label='Drug Name' options={this.getOptions('drug')}
+                                 name='drug' onChange={this.handleChange} value={this.state.drug}/>
                   </Grid.Column>
                   <Grid.Column>
-                  <Form.Select label='Lot Number' options={this.getOptions('lotId')}
-                               name='lotId' onChange={this.handleChange} value={this.state.lotId}/>
+                    <Form.Select clearable label='Lot Number' options={this.getOptions('lotId')}
+                                 name='lotId' onChange={this.handleChange} value={this.state.lotId}/>
                   </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
@@ -148,7 +155,7 @@ class Dispense extends React.Component {
                                 name='expire' onChange={this.handleChange} value={this.state.expire}/>
                   </Grid.Column>
                   <Grid.Column>
-                    <Form.Select label='Brand' options={this.getOptions('brand')}
+                    <Form.Select clearable label='Brand' options={this.getOptions('brand')}
                                  name='brand' onChange={this.handleChange} value={this.state.brand}/>
                   </Grid.Column>
                   <Grid.Column>
@@ -158,7 +165,7 @@ class Dispense extends React.Component {
                       <Form.Select label='Unit' className='unit-select'
                                    options={this.unitOptions} width={4} fluid/>
                     </Form.Group>
-                    </Grid.Column>
+                  </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
                   <Grid.Column>
@@ -168,7 +175,7 @@ class Dispense extends React.Component {
                   </Grid.Column>
                 </Grid.Row>
               </Grid>
-          </Segment>
+            </Segment>
             <div className='buttons-div'>
               <Button type='submit' text style={{ marginTop: '1em' }}
                       color="red" size='medium' inverted>Clear Fields</Button>
