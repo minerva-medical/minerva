@@ -22,10 +22,10 @@ class App extends React.Component {
   render() {
     return (
         <Router>
+          <Switch>
+          <Route exact path="/" component={Landing}/>
           <div>
             <NavBar/>
-            <Switch>
-              <Route exact path="/" component={Landing}/>
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
               <ProtectedRoute path="/list" component={ListStuff}/>
@@ -35,9 +35,9 @@ class App extends React.Component {
               <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>
-            </Switch>
             <Footer/>
           </div>
+          </Switch>
         </Router>
     );
   }

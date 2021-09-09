@@ -12,10 +12,10 @@ class LandingPage extends React.Component {
                 <Divider section hidden/>
                 <Grid columns={2} verticalAlign="top" textAlign="center" container>
                     <Grid.Column>
-                        <Button basic inverted size="massive" as={NavLink} activeClassName="" exact to="/signup" key='signup' style={{color:'darkolivegreen !important', font:'Lato'}}>REGISTER</Button>
+                        <Button size="massive" as={NavLink} activeClassName="" exact to="/signup" key='signup' inverted style={{font:'Lato'}}>REGISTER</Button>
                     </Grid.Column>
                     <Grid.Column>
-                        <Button size="massive" as={NavLink} activeClassName="" exact to="/signin" key='signin' inverted style={{color:'darkolivegreen', font:'Lato'}}>LOGIN</Button>
+                        <Button size="massive" as={NavLink} activeClassName="" exact to="/signin" key='signin' inverted style={{font:'Lato'}}>LOGIN</Button>
                     </Grid.Column>
                 </Grid>
             </div>

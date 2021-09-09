@@ -25,6 +25,7 @@
     height: calc(50vw - 20vh);
     top: 0px !important;
     width: 100% !important;
+    margin-bottom:0%;
 }
 
 .landing-center{
@@ -39,6 +40,6 @@
   font-weight: bold;
   text-shadow: 2px 2px 2px darkolivegreen;
   color: white !important;
-  padding-top: 35% !important;
+  padding-top: 45% !important;
   width: 100% !important;
 }
