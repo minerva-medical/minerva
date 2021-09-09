@@ -21,7 +21,6 @@ import DrugPage from '../pages/DrugPage';
 class App extends React.Component {
   render() {
     const LoggedInRoutes = () => (
-        <Router>
           <div>
             <NavBar/>
             <Switch>
@@ -36,8 +35,7 @@ class App extends React.Component {
             </Switch>
             <Footer/>
           </div>
-        </Router>
-    );
+      );
 
     return (
         <Router>
