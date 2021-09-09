@@ -1,6 +1,6 @@
 import React from 'react';
 import { Header, Form, Container, Loader, Table, Popup, Segment, Divider, Dropdown,
-  Pagination, Icon } from 'semantic-ui-react';
+  Pagination, Icon, Grid } from 'semantic-ui-react';
 // import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -84,6 +84,20 @@ class Status extends React.Component {
       { key: '3', value: '100', text: '100' },
     ];
 
+    const brand = [
+      { key: '0', value: 'All', text: 'All' },
+      { key: '1', value: 'Tylenol', text: 'Tylenol' },
+      { key: '2', value: 'Advil', text: 'Advil' },
+      { key: '3', value: 'Generic', text: 'Generic' },
+    ];
+
+    const type = [
+      { key: '0', value: 'All', text: 'All' },
+      { key: '1', value: 'Allergy & Cold Medicines', text: 'Allergy & Cold Medicines' },
+      { key: '2', value: 'Analgesics/Anti-inflammatory', text: 'Analgesics/Anti-inflammatory' },
+      { key: '3', value: 'Antihypertensives', text: 'Antihypertensives' },
+    ];
+
     return (
         <Container id='inventory-status' text style={{ marginTop: '1em' }}>
           <Header as="h2">
@@ -96,30 +110,50 @@ class Status extends React.Component {
             </Header.Content>
           </Header>
           <Segment text style={{ marginTop: '1em' }}>
-          <Form>
-            <Form.Group>
-              <Form.Field>
-                <Popup
-                  trigger={
-                    <Form.Input
-                      placeholder={'Enter a filter.'}
-                      name={'filter'}
-                      label={'Filter'}
-                      icon={'search'}
-                      />
-                  }
-                  positon={'right center'}
+            <Grid>
+              <React.Fragment>
+                <Grid.Column width={8}>
+                  <Form>
+                    <Form.Group>
+                      <Form.Field>
+                        <Popup
+                            trigger={
+                              <Form.Input floated={'right'}
+                                          placeholder={'Enter a filter.'}
+                                          name={'filter'}
+                                          label={'Filter'}
+                                          icon={'search'}
+                              />
+                            }
+                            positon={'right center'}
+                        />
+                      </Form.Field>
+                    </Form.Group>
+                  </Form>
+                </Grid.Column>
+                <Grid.Column width={15}>
+                  Brand: {' '}
+                  <Dropdown
+                      inline={true}
+                      options={brand}
+                      defaultValue={'All'}
                   />
-              </Form.Field>
-            </Form.Group>
-          </Form>
+                  Type: {' '}
+                  <Dropdown
+                      inline={true}
+                      options={type}
+                      defaultValue={'All'}
+                  />
+                </Grid.Column>
+              </React.Fragment>
+            </Grid>
             <Divider/>
             <React.Fragment>
               Records per page:{' '}
-            <Dropdown
-              inline={true}
-              options={limitOptions}
-              defaultValue={'25'}
+              <Dropdown
+                  inline={true}
+                  options={limitOptions}
+                  defaultValue={'25'}
               />
               Total count: {'200'}
               <Table celled selectable sortable>
@@ -134,6 +168,11 @@ class Status extends React.Component {
                         width={3}
                     >
                       Brand
+                    </Table.HeaderCell>
+                    <Table.HeaderCell
+                        width={3}
+                    >
+                      Type
                     </Table.HeaderCell>
                     <Table.HeaderCell
                         width={3}
@@ -154,6 +193,7 @@ class Status extends React.Component {
                   <Table.Row>
                     <Table.Cell>1</Table.Cell>
                     <Table.Cell>Tylenol</Table.Cell>
+                    <Table.Cell>Analgesics/Anti-inflammatory</Table.Cell>
                     <Table.Cell>Acetaminophen 500 mg Caps</Table.Cell>
                     <Table.Cell>60</Table.Cell>
                     <Table.Cell textAlign='center'>
@@ -163,6 +203,7 @@ class Status extends React.Component {
                   <Table.Row>
                     <Table.Cell>2</Table.Cell>
                     <Table.Cell>Tylenol</Table.Cell>
+                    <Table.Cell>Analgesics/Anti-inflammatory</Table.Cell>
                     <Table.Cell>Acetaminophen 160mg/5 ml Susp</Table.Cell>
                     <Table.Cell>2</Table.Cell>
                     <Table.Cell textAlign='center'>
@@ -172,6 +213,7 @@ class Status extends React.Component {
                   <Table.Row>
                     <Table.Cell>3</Table.Cell>
                     <Table.Cell>Tylenol</Table.Cell>
+                    <Table.Cell>Analgesics/Anti-inflammatory</Table.Cell>
                     <Table.Cell>Acetaminophen Infant Drops</Table.Cell>
                     <Table.Cell>0</Table.Cell>
                     <Table.Cell textAlign='center'>
