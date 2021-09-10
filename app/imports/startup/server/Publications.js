@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+import { Medications } from '../../api/medication/MedicationCollection';
 import { Stuffs } from '../../api/stuff/StuffCollection';
 import { Drugs } from '../../api/drug/DrugCollection';
 import { DrugTypes } from '../../api/drugType/DrugTypeCollection';
@@ -9,6 +10,7 @@ import { Sites } from '../../api/site/SiteCollection';
 
 /** Publish all the collections you need. */
 Stuffs.publish();
+Medications.publish();
 Drugs.publish();
 DrugTypes.publish();
 Brands.publish();

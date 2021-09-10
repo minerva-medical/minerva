@@ -2,6 +2,7 @@ import '/imports/startup/server/Accounts';
 import '/imports/startup/server/Publications';
 import '/imports/startup/server/Mongo';
 import '../imports/api/stuff/StuffCollection.methods';
+import '../imports/api/medication/MedicationCollection.methods';
 import '../imports/api/drug/DrugCollection.methods';
 import '../imports/api/drugType/DrugTypeCollection.methods';
 import '../imports/api/brand/BrandCollection.methods';
