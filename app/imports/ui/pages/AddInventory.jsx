@@ -15,24 +15,25 @@ class AddInventory extends React.Component {
       drugName: undefined,
       drugBrand: undefined,
       lotNum: undefined,
-      expDate: new Date(),
+      expDate: new Date().toISOString().slice(0, 10),
       quantity: undefined,
       locationDesc: undefined,
       purchasedDonated: undefined,
       donatedIdentity: undefined,
       site: undefined,
       additionalInfo: undefined
-    }
+    };
+
     this.inventoryItemType = [
-      { key: '1', text: 'Medication', value: 'Medication' },
-      { key: '2', text: 'Vaccination', value: 'Vaccination' },
-      { key: '3', text: 'Patient Supplies', value: 'Patient Supplies' },
-      { key: '4', text: 'Lab Testing Supplies', value: 'Lab Testing Supplies' },
+      { key: '0', text: 'Medication', value: 'Medication' },
+      { key: '1', text: 'Vaccination', value: 'Vaccination' },
+      { key: '2', text: 'Patient Supplies', value: 'Patient Supplies' },
+      { key: '3', text: 'Lab Testing Supplies', value: 'Lab Testing Supplies' },
     ];
 
     this.pd = [
-      { key: '1', text: 'Purchased', value: 0},
-      { key: '2', text: 'Donated', value: 1}
+      { key: '0', text: 'Purchased', value: 0},
+      { key: '1', text: 'Donated', value: 1},
     ];
   }
 
@@ -64,11 +65,6 @@ class AddInventory extends React.Component {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
-    return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
-  }
-
-  /** Render the form. */
-  renderPage() {
     return (
       <Container id='add-form' text style={{ marginTop: '1em' }}>
         <Header as="h2">
@@ -77,7 +73,8 @@ class AddInventory extends React.Component {
           </Header.Content>
         </Header>
         <Form onSubmit={this.submit}>
-          <Grid.Row columns='equal' >
+          <Segment text style ={{marginTop: '1em'}}>
+          <Grid columns='equal' >
             <Grid.Row>
               <Grid.Column>
                 <Form.Select label='Item to be Added to the Inventory' name='inventoryItem'
@@ -136,7 +133,8 @@ class AddInventory extends React.Component {
                             onChange={this.handleChange} value={this.state.additionalInfo}/>
               </Grid.Column>
             </Grid.Row>
-          </Grid.Row>
+          </Grid>
+          </Segment>
         </Form>
       </Container>
     );
@@ -148,4 +146,4 @@ AddInventory.propTypes = {
   ready: PropTypes.bool.isRequired,
 };
 
-export default withTracker(AddInventory);
+export default AddInventory;

@@ -15,6 +15,8 @@ import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
+import AddInventory from '../pages/AddInventory';
+import Dispense from '../pages/Dispense';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -24,7 +26,7 @@ class App extends React.Component {
           <div>
             <NavBar/>
             <Switch>
-              <Route exact path="/" component={Landing}/>
+              <Route exact path="/" component={AddInventory}/>
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
               <ProtectedRoute path="/list" component={ListStuff}/>
