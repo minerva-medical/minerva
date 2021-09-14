@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Header, Form, Button, Container, Loader, Segment } from 'semantic-ui-react';
+import { Grid, Header, Form, Button, Container, Segment } from 'semantic-ui-react';
 // import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -70,6 +70,9 @@ class AddInventory extends React.Component {
         <Header as="h2">
           <Header.Content>
             Add to Inventory Form
+            <Header.Subheader>
+              <i>Please input all fields to add to the inventory</i>
+            </Header.Subheader>
           </Header.Content>
         </Header>
         <Form onSubmit={this.submit}>
@@ -79,7 +82,7 @@ class AddInventory extends React.Component {
               <Grid.Column>
                 <Form.Select label='Item to be Added to the Inventory' name='inventoryItem'
                              onChange={this.handleChange} value={this.state.inventoryItem}
-                             options={this.inventoryItemType}/>
+                             options={this.inventoryItemType} placeholder="Medication / Vaccination / Patient Supplies / Lab Testing Supplies"/>
               </Grid.Column>
             </Grid.Row>
             <Grid.Row>
@@ -95,7 +98,9 @@ class AddInventory extends React.Component {
             <Grid.Row>
               <Grid.Column>
                 <Form.Input label='Lot Number' name='lotNum'
-                            onChange={this.handleChange} value={this.state.lotNum}/>
+                            onChange={this.handleChange} value={this.state.lotNum}
+                            placeholder="#A07812309"
+                />
               </Grid.Column>
               <Grid.Column>
                 <Form.Input type="date" label='Expiration Date' name='expDate'
@@ -116,7 +121,7 @@ class AddInventory extends React.Component {
               <Grid.Column>
                 <Form.Select label='Purchased or Donated?' name='pd'
                              onChange={this.handleChange} value={this.state.purchasedDonated}
-                             options={this.pd}/>
+                             options={this.pd} placeholder="Purchased / Donated"/>
               </Grid.Column>
               <Grid.Column>
                 <Form.Input label='If Donated, by who?' name='donatedIdentity'
@@ -132,6 +137,12 @@ class AddInventory extends React.Component {
                 <Form.Input label='Additional Information' name='additionalInfo'
                             onChange={this.handleChange} value={this.state.additionalInfo}/>
               </Grid.Column>
+            </Grid.Row>
+            <Grid.Row>
+              <div className='submit-button'>
+                <Button type='submit' text style={{ marginTop: '1em', marginLeft:'1em' }}
+                        color="green" floated="right">Submit</Button>
+              </div>
             </Grid.Row>
           </Grid>
           </Segment>
