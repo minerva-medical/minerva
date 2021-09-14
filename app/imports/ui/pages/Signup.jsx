@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
-import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
+import { Container, Form, Grid, Header, Message, Segment, Button } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
+import { NavLink } from 'react-router-dom';
 
 /**
  * Signup component is similar to signin component, but we create a new user instead.
@@ -39,39 +40,36 @@ class Signup extends React.Component {
       return <Redirect to={from}/>;
     }
     return (
-      <Container>
-        <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
-          <Grid.Column>
-            <Header as="h2" textAlign="center">
-              Register your account
-            </Header>
-            <Form onSubmit={this.submit}>
-              <Segment stacked>
-                <Form.Input
-                  label="Email"
-                  icon="user"
-                  iconPosition="left"
-                  name="email"
-                  type="email"
-                  placeholder="E-mail address"
-                  onChange={this.handleChange}
-                />
-                <Form.Input
-                  label="Password"
-                  icon="lock"
-                  iconPosition="left"
-                  name="password"
-                  placeholder="Password"
-                  type="password"
-                  onChange={this.handleChange}
-                />
-                <Form.Button content="Submit"/>
-              </Segment>
-            </Form>
-            <Message>
-              Already have an account? Login <Link to="/signin">here</Link>
-            </Message>
-            {this.state.error === '' ? (
+      <div className="body-signup">
+      <div className="container-sign" id="container">
+      <div className="form-container sign-up-container">
+        <form onSubmit={this.submit}>
+          <h1 className="h1-signup">Create Account</h1>
+          <Segment stacked>
+          <span>or use your email for registration</span>
+          
+          <input type="text" placeholder="Name" />
+          <input type="email" placeholder="Email" />
+          <input type="password" placeholder="Password" />
+          <Button content="Submit">Sign Up</Button>
+          </Segment>
+        </form>
+      </div> 
+      <div className="overlay-container">
+        <div className="overlay">
+          <div className="overlay-panel overlay-left">
+            <h1 className="h1-signup">Welcome Back!</h1>
+            <p>To keep connected with us please login with your personal info</p>
+            <button className="ghost button-signup" id="signUp">Sign Up</button>
+          </div>
+          <div className="overlay-panel overlay-right">
+            <h1>Aloha, Friend!</h1>
+            <p>Already have a registered account?</p>
+            <Button inverted className="ghost button-signup" id="signIn" as={NavLink} activeClassName="" exact to="/signin" key="signin">LOGIN</Button>
+          </div>
+        </div>
+      </div>
+                  {this.state.error === '' ? (
               ''
             ) : (
               <Message
@@ -80,9 +78,8 @@ class Signup extends React.Component {
                 content={this.state.error}
               />
             )}
-          </Grid.Column>
-        </Grid>
-      </Container>
+      </div>
+    </div>
     );
   }
 }
