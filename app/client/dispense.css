@@ -10,3 +10,7 @@
     width: 5rem;
     min-width: 5rem;
 }
+
+#inventory-status {
+  margin-top: 2em;
+}

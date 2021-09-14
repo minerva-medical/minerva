@@ -1,6 +1,6 @@
 import React from 'react';
-import { Header, Form, Container, Loader, Table, Popup, Segment, Divider, Dropdown,
-  Pagination, Icon, Grid } from 'semantic-ui-react';
+import { Header, Container, Loader, Table, Segment, Divider, Dropdown,
+  Pagination, Grid } from 'semantic-ui-react';
 // import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -84,22 +84,20 @@ class DispenseLog extends React.Component {
       { key: '3', value: '100', text: '100' },
     ];
 
-    const brand = [
-      { key: '0', value: 'All', text: 'All' },
-      { key: '1', value: 'Tylenol', text: 'Tylenol' },
-      { key: '2', value: 'Advil', text: 'Advil' },
-      { key: '3', value: 'Generic', text: 'Generic' },
+    const sort = [
+      { key: '0', value: 'Most Recent', text: 'Most Recent' },
+      { key: '1', value: 'Oldest to Newest', text: 'Oldest to Newest' },
     ];
 
-    const type = [
+    const reason = [
       { key: '0', value: 'All', text: 'All' },
-      { key: '1', value: 'Allergy & Cold Medicines', text: 'Allergy & Cold Medicines' },
-      { key: '2', value: 'Analgesics/Anti-inflammatory', text: 'Analgesics/Anti-inflammatory' },
-      { key: '3', value: 'Antihypertensives', text: 'Antihypertensives' },
+      { key: '1', value: 'Patient Use', text: 'Patient Use' },
+      { key: '2', value: 'Expired', text: 'Expired' },
+      { key: '3', value: 'Broken/Contaminated', text: 'Broken/Contaminated' },
     ];
 
     return (
-        <Container id='inventory-status' text style={{ marginTop: '1em' }}>
+        <Container id='inventory-status'>
           <Header as="h2">
             <Header.Content>
               History Dispense Log
@@ -108,39 +106,20 @@ class DispenseLog extends React.Component {
               </Header.Subheader>
             </Header.Content>
           </Header>
-          <Segment text style={{ marginTop: '1em' }}>
+          <Segment>
             <Grid>
               <React.Fragment>
-                <Grid.Column width={8}>
-                  <Form>
-                    <Form.Group>
-                      <Form.Field>
-                        <Popup
-                            trigger={
-                              <Form.Input floated={'right'}
-                                          placeholder={'Enter a filter.'}
-                                          name={'filter'}
-                                          label={'Filter'}
-                                          icon={'search'}
-                              />
-                            }
-                            positon={'right center'}
-                        />
-                      </Form.Field>
-                    </Form.Group>
-                  </Form>
-                </Grid.Column>
                 <Grid.Column width={15}>
-                  Brand: {' '}
+                  Sort: {' '}
                   <Dropdown
                       inline={true}
-                      options={brand}
-                      defaultValue={'All'}
+                      options={sort}
+                      defaultValue={'Most Recent'}
                   />
-                  Type: {' '}
+                  Reason for Dispense: {' '}
                   <Dropdown
                       inline={true}
-                      options={type}
+                      options={reason}
                       defaultValue={'All'}
                   />
                 </Grid.Column>
@@ -161,17 +140,12 @@ class DispenseLog extends React.Component {
                     <Table.HeaderCell
                         width={1}
                     >
-                      #
+                      Date : Time
                     </Table.HeaderCell>
                     <Table.HeaderCell
-                        width={3}
+                        width={2}
                     >
-                      Brand
-                    </Table.HeaderCell>
-                    <Table.HeaderCell
-                        width={3}
-                    >
-                      Type
+                      Reason for Dispense
                     </Table.HeaderCell>
                     <Table.HeaderCell
                         width={3}
@@ -181,43 +155,66 @@ class DispenseLog extends React.Component {
                     <Table.HeaderCell
                         width={1}
                     >
-                      Quantity
+                      Brand
                     </Table.HeaderCell>
                     <Table.HeaderCell
                         width={1}
                     >
-                      Status
+                      Quantity
+                    </Table.HeaderCell>
+                    <Table.HeaderCell
+                        width={3}
+                    >
+                      Dispensed by
                     </Table.HeaderCell>
                   </Table.Row>
                   <Table.Row>
-                    <Table.Cell>1</Table.Cell>
-                    <Table.Cell>Tylenol</Table.Cell>
-                    <Table.Cell>Analgesics/Anti-inflammatory</Table.Cell>
+                    <Table.Cell>2021-09-13 (12:25:30)</Table.Cell>
+                    <Table.Cell>Expired</Table.Cell>
                     <Table.Cell>Acetaminophen 500 mg Caps</Table.Cell>
+                    <Table.Cell>Tylenol</Table.Cell>
                     <Table.Cell>60</Table.Cell>
-                    <Table.Cell textAlign='center'>
-                      <Icon color='green' name='circle'/>
-                    </Table.Cell>
+                    <Table.Cell>janedoe@hawaii.edu</Table.Cell>
                   </Table.Row>
                   <Table.Row>
-                    <Table.Cell>2</Table.Cell>
-                    <Table.Cell>Tylenol</Table.Cell>
-                    <Table.Cell>Analgesics/Anti-inflammatory</Table.Cell>
+                    <Table.Cell>2021-09-13 (12:25:30)</Table.Cell>
+                    <Table.Cell>Broken/Contaminated</Table.Cell>
                     <Table.Cell>Acetaminophen 160mg/5 ml Susp</Table.Cell>
+                    <Table.Cell>Advil</Table.Cell>
                     <Table.Cell>2</Table.Cell>
-                    <Table.Cell textAlign='center'>
-                      <Icon color='yellow' name='circle'/>
-                    </Table.Cell>
+                    <Table.Cell>johndoe@hawaii.edu</Table.Cell>
                   </Table.Row>
                   <Table.Row>
-                    <Table.Cell>3</Table.Cell>
-                    <Table.Cell>Tylenol</Table.Cell>
-                    <Table.Cell>Analgesics/Anti-inflammatory</Table.Cell>
+                    <Table.Cell>2021-09-12 (08:30:04)</Table.Cell>
+                    <Table.Cell>Patient Use</Table.Cell>
                     <Table.Cell>Acetaminophen Infant Drops</Table.Cell>
-                    <Table.Cell>0</Table.Cell>
-                    <Table.Cell textAlign='center'>
-                      <Icon color='red' name='circle'/>
-                    </Table.Cell>
+                    <Table.Cell>Tylenol</Table.Cell>
+                    <Table.Cell>2.5 mL</Table.Cell>
+                    <Table.Cell>doe@hawaii.edu</Table.Cell>
+                  </Table.Row>
+                  <Table.Row>
+                    <Table.Cell>2021-09-12 (07:45:20)</Table.Cell>
+                    <Table.Cell>Expired</Table.Cell>
+                    <Table.Cell>Acetaminophen 500 mg Caps</Table.Cell>
+                    <Table.Cell>Advil</Table.Cell>
+                    <Table.Cell>60</Table.Cell>
+                    <Table.Cell>janedoe@hawaii.edu</Table.Cell>
+                  </Table.Row>
+                  <Table.Row>
+                    <Table.Cell>2021-09-11 (10:04:18)</Table.Cell>
+                    <Table.Cell>Broken/Contaminated</Table.Cell>
+                    <Table.Cell>Acetaminophen 160mg/5 ml Susp</Table.Cell>
+                    <Table.Cell>Tylenol</Table.Cell>
+                    <Table.Cell>2</Table.Cell>
+                    <Table.Cell>johndoe@hawaii.edu</Table.Cell>
+                  </Table.Row>
+                  <Table.Row>
+                    <Table.Cell>2021-09-10 (13:04:67)</Table.Cell>
+                    <Table.Cell>Patient Use</Table.Cell>
+                    <Table.Cell>Acetaminophen Infant Drops</Table.Cell>
+                    <Table.Cell>Advil</Table.Cell>
+                    <Table.Cell>2.5 mL</Table.Cell>
+                    <Table.Cell>doe@hawaii.edu</Table.Cell>
                   </Table.Row>
                 </Table.Header>
                 <Table.Footer>
