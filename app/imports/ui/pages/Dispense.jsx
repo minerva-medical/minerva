@@ -1,6 +1,10 @@
+/*  TECHNICAL DEBT:
+ AR-01: file name is in PascalCase, not camelCase
+ JS-06: console.log on line 68
+ UI-02: not tested to be compatible with mobile devices, grid could be made stackable
+ */
 import React from 'react';
 import { Grid, Header, Form, Button, Container, Loader, Segment } from 'semantic-ui-react';
-// import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -98,7 +102,6 @@ class Dispense extends React.Component {
           </Header>
           <Form onSubmit={this.submit}>
             <Segment text style={{ marginTop: '1em' }}>
-            {/* dispense info */}
               <Grid columns='equal' >
                 <Grid.Row>
                   <Grid.Column>
@@ -169,9 +172,9 @@ class Dispense extends React.Component {
                 </Grid.Row>
                 <Grid.Row>
                   <Grid.Column>
-                    <Form.Input label='Additional Notes'control='textarea' rows={2}
+                    <Form.TextArea label='Additional Notes' rows={2}
                                 onChange={this.handleChange} value={this.state.notes}>
-                    </Form.Input>
+                    </Form.TextArea>
                   </Grid.Column>
                 </Grid.Row>
               </Grid>
@@ -188,7 +191,7 @@ class Dispense extends React.Component {
   }
 }
 
-/** Require an array of Stuff documents in the props. */
+/** Require an array of Dispense documents in the props. */
 Dispense.propTypes = {
   ready: PropTypes.bool.isRequired,
 };

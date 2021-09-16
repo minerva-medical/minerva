@@ -1,7 +1,12 @@
+/*  TECHNICAL DEBT:
+ AR-01: file name is in PascalCase, not camelCase
+ RE-01: Table.Row could be moved to a subcomponent
+ UI-01: a "see more" option may work better than the pagination currently displayed
+ UI-02: not tested to be compatible with mobile devices, grid could be made stackable
+ */
 import React from 'react';
 import { Header, Form, Container, Loader, Table, Segment, Divider, Dropdown,
   Pagination, Icon, Grid } from 'semantic-ui-react';
-// import swal from 'sweetalert';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Sites } from '../../api/site/SiteCollection';

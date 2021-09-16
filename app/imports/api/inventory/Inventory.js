@@ -28,7 +28,7 @@ const InventorySchema = new SimpleSchema({
   },
   puchasedOrDonated: {
     type: String,
-    allowedValues: ['Purchased', 'Donated']
+    allowedValues: ['Purchased', 'Donated'],
   },
   Donated: {
     type: String,
@@ -40,9 +40,8 @@ const InventorySchema = new SimpleSchema({
     type: String,
   },
 
-}, { tracker: Tracker});
+}, { tracker: Tracker });
 
 Inv.attachSchema(InventorySchema);
 
-export { Inv, InventorySchema};
-
+export { Inv, InventorySchema };
