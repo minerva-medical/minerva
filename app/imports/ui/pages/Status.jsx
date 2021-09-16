@@ -1,7 +1,6 @@
 import React from 'react';
 import { Header, Form, Container, Loader, Table, Segment, Divider, Dropdown,
   Pagination, Icon, Grid } from 'semantic-ui-react';
-// import swal from 'sweetalert';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Sites } from '../../api/site/SiteCollection';
