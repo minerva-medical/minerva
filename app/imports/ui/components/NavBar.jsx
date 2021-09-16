@@ -15,19 +15,23 @@ class NavBar extends React.Component {
       color: 'white',
     };
     return (
-        <Menu style={menuStyle} attached="top" borderless inverted>
-          <Menu.Item as={NavLink} activeClassName="" exact to="/">
-            <Header inverted as='h1'>MINERVA</Header>
-          </Menu.Item>
-          {this.props.currentUser ? (
-            [<Menu.Item as={NavLink} activeClassName="active" exact to="/dispense"
-                        key='dispense'>Dispense Inventory</Menu.Item>,
-                <Menu.Item as={NavLink} activeClassName="active" exact to="/list" key='list'>List Stuff</Menu.Item>]
-          ) : ''}
-          {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/admin" key='admin'>Admin</Menu.Item>
-          ) : ''}
-          <Menu.Item position="right">
+      <Menu style={menuStyle} attached="top" borderless inverted>
+        <Menu.Item as={NavLink} activeClassName="" exact to="/">
+          <Header inverted as='h1'>MINERVA</Header>
+        </Menu.Item>
+        {this.props.currentUser ? (
+            [<Menu.Item as={NavLink} activeClassName="active" exact to="/dispense" key='dispense'>
+              Dispense Inventory</Menu.Item>,
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/status" key='status'>
+                Inventory Status</Menu.Item>,
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/dispenseLog" key='dispenseLog'>
+                Dispense Log</Menu.Item>,
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/list" key='list'>List Stuff</Menu.Item>]
+        ) : ''}
+        {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+            <Menu.Item as={NavLink} activeClassName="active" exact to="/admin" key='admin'>Admin</Menu.Item>
+        ) : ''}
+        <Menu.Item position="right">
           {this.props.currentUser === '' ? (
                 <Dropdown text="Login" pointing="top right" icon={'user'}>
                   <Dropdown.Menu>
