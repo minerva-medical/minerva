@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, Redirect } from 'react-router-dom';
-import { Container, Form, Grid, Header, Message, Segment, Button } from 'semantic-ui-react';
+import { Redirect } from 'react-router-dom';
+import { Form, Message, Segment, Button } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
-import { NavLink } from 'react-router-dom';
 
 /**
  * Signup component is similar to signin component, but we create a new user instead.
@@ -48,18 +47,18 @@ class Signup extends React.Component {
           <Segment stacked>
           <span>or use your email for registration</span>
           <Form.Field>
-            <Form.Input type="username" name="username" placeholder="Username"  onChange={this.handleChange}/>
+            <Form.Input type="username" name="username" placeholder="Username" onChange={this.handleChange}/>
           </Form.Field>
           <Form.Field>
-            <Form.Input type="email" name="email" placeholder="Email"  onChange={this.handleChange}/>
+            <Form.Input type="email" name="email" placeholder="Email" onChange={this.handleChange}/>
           </Form.Field>
           <Form.Field>
-            <Form.Input type="password" name="password" placeholder="Password"  onChange={this.handleChange}/>
+            <Form.Input type="password" name="password" placeholder="Password" onChange={this.handleChange}/>
           </Form.Field>
           <Form.Button id="signup-form-submit" content="Submit"/>
           </Segment>
         </Form>
-      </div> 
+      </div>
       <div className="overlay-container">
         <div className="overlay">
           <div className="overlay-panel overlay-left">
@@ -70,7 +69,7 @@ class Signup extends React.Component {
           <div className="overlay-panel overlay-right">
             <h1>Aloha, Friend!</h1>
             <p>Already have a registered account?</p>
-            <Button inverted className="ghost button-signup" id="signIn" as={NavLink} activeClassName="" exact to="/signin" key="signin">LOGIN</Button>
+            <Button inverted className="ghost button-signup" exact to="/signin" key="signin">LOGIN</Button>
           </div>
         </div>
       </div>
