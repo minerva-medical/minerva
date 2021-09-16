@@ -46,7 +46,7 @@ export default class Signin extends React.Component {
         <Container>
           <Grid textAlign="center" centered columns={2}>
             <Grid.Column width={7}>
-              <Icon name='stethoscope' size='huge'/>
+              <Icon name='stethoscope' size='huge' style={{visibility: 'hidden'}}/>
               <Header as='h1' textAlign='center'>MINERVA</Header>
             </Grid.Column>
             <Grid.Column width={9}>

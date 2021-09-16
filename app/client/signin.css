@@ -1,19 +1,14 @@
-/* intro rust font not free, need to pick font */
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
-
 #signin-div {
     background-color: #c2d9b2;
     padding: 100px 0;
 }
 
 #signin-div h1 {
-    font-family: 'Fredoka One';
     color: white;
     font-size: 5rem;
 }
 
 #signin-div h2 {
-    font-family: 'Fredoka One';
     color: white;
     margin-bottom: 2rem;
 }
@@ -46,7 +41,6 @@
     border-radius: 500rem;
     background-color: white;
     border: 1px solid gray;
-    font-family: 'Fredoka One';
     color: black;
     padding: 1.2em 3.6em;
 }
