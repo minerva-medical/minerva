@@ -1,3 +1,8 @@
+/*  TECHNICAL DEBT:
+ AR-01: file name is in PascalCase, not camelCase
+ JS-06: console.log on line 68
+ UI-02: not tested to be compatible with mobile devices, grid could be made stackable
+ */
 import React from 'react';
 import { Grid, Header, Form, Button, Container, Loader, Segment } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
