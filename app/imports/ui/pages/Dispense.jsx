@@ -1,4 +1,4 @@
-  import React from 'react';
+import React from 'react';
 import { Grid, Header, Form, Button, Container, Loader, Segment } from 'semantic-ui-react';
 // import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
