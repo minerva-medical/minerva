@@ -75,6 +75,7 @@ class AddInventory extends React.Component {
             </Header.Subheader>
           </Header.Content>
         </Header>
+
         <Form onSubmit={this.submit}>
           <Segment text style ={{marginTop: '1em'}}>
           <Grid columns='equal' >
@@ -134,7 +135,7 @@ class AddInventory extends React.Component {
             </Grid.Row>
             <Grid.Row>
               <Grid.Column>
-                <Form.Input label='Additional Information' name='additionalInfo'
+                <Form.Input label='Additional Information' name='additionalInfo' rows={2}
                             onChange={this.handleChange} value={this.state.additionalInfo}/>
               </Grid.Column>
             </Grid.Row>
