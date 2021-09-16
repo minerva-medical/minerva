@@ -25,10 +25,12 @@ class NavBar extends React.Component {
                 <Menu.Item as={NavLink} activeClassName="active" exact to="/status" key='status'>
                   Inventory Status</Menu.Item>,
                 <Menu.Item as={NavLink} activeClassName="active" exact to="/dispenseLog" key='dispenseLog'>
-                  Dispense Log</Menu.Item>]
+                  Dispense Log</Menu.Item>,
+                <Menu.Item position="right" as={NavLink} activeClassName="active" exact to="/about" key='about'>
+                  About Us</Menu.Item>]
           ) : ''}
           {this.props.currentUser === '' ? (
-              <Menu.Item position="right">
+            <Menu.Item position="right">
                 <Dropdown text="Login" pointing="top right" icon={'user'}>
                   <Dropdown.Menu>
                     <Dropdown.Item icon="user" text="Sign In" as={NavLink} exact to="/signin"/>
@@ -37,7 +39,7 @@ class NavBar extends React.Component {
                 </Dropdown>
               </Menu.Item>
           ) : (
-              <Menu.Menu position="right" attached="top" borderless inverted>
+              <Menu.Menu attached="top" borderless inverted>
                 <Menu.Item>
                   <Menu.Item key='current-user'>
                     <Icon name="user doctor"/>{this.props.currentUser}
@@ -51,6 +53,7 @@ class NavBar extends React.Component {
               </Menu.Menu>
           )}
         </Menu>
+
     );
   }
 }
