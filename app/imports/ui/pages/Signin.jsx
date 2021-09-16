@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
-import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
+import { Container, Form, Grid, Header, Message, Segment, Icon } from 'semantic-ui-react';
 
 /**
  * Signin page overrides the form’s submit event and call Meteor’s loginWithPassword().
@@ -42,16 +42,20 @@ export default class Signin extends React.Component {
     }
     // Otherwise return the Login form.
     return (
-      <Container>
-        <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
-          <Grid.Column>
-            <Header as="h2" textAlign="center">
-              Login to your account
-            </Header>
-            <Form onSubmit={this.submit}>
-              <Segment stacked>
+      <div id='signin-div'>
+        <Container>
+          <Grid textAlign="center" centered columns={2}>
+            <Grid.Column width={7}>
+              <Icon name='stethoscope' size='huge' style={{visibility: 'hidden'}}/>
+              <Header as='h1' textAlign='center'>MINERVA</Header>
+            </Grid.Column>
+            <Grid.Column width={9}>
+              <Header as="h2" textAlign="center">
+                NICE TO SEE YOU AGAIN, LOGIN AND GET STARTED!
+              </Header>
+              <Form onSubmit={this.submit}>
                 <Form.Input
-                  label="Email"
+                  label="EMAIL"
                   icon="user"
                   iconPosition="left"
                   name="email"
@@ -60,7 +64,7 @@ export default class Signin extends React.Component {
                   onChange={this.handleChange}
                 />
                 <Form.Input
-                  label="Password"
+                  label="PASSWORD"
                   icon="lock"
                   iconPosition="left"
                   name="password"
@@ -68,24 +72,24 @@ export default class Signin extends React.Component {
                   type="password"
                   onChange={this.handleChange}
                 />
-                <Form.Button content="Submit"/>
-              </Segment>
-            </Form>
-            <Message>
-              <Link to="/signup">Click here to Register</Link>
-            </Message>
-            {this.state.error === '' ? (
-              ''
-            ) : (
-              <Message
-                error
-                header="Login was not successful"
-                content={this.state.error}
-              />
-            )}
-          </Grid.Column>
-        </Grid>
-      </Container>
+                <Form.Button content="LOGIN"/>
+              </Form>
+              {/*<Message>*/}
+              {/*  <Link to="/signup">Click here to Register</Link>*/}
+              {/*</Message>*/}
+              {this.state.error === '' ? (
+                ''
+              ) : (
+                <Message
+                  error
+                  header="Login was not successful"
+                  content={this.state.error}
+                />
+              )}
+            </Grid.Column>
+          </Grid>
+        </Container>
+      </div>
     );
   }
 }
