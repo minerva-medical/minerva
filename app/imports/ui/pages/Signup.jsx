@@ -43,7 +43,7 @@ class Signup extends React.Component {
       <div className="body-signup">
       <div className="container-sign" id="container">
       <div className="form-container sign-up-container">
-        <Form onSubmit={this.submit}>
+        <Form onSubmit={this.submit} className="form-signup">
           <h1 className="h1-signup">Create Account</h1>
           <Segment stacked>
           <span>or use your email for registration</span>

@@ -71,10 +71,6 @@ h1-signup {
 	margin: 0;
 }
 
-h2 {
-	text-align: center;
-}
-
 p {
 	font-size: 14px;
 	font-weight: 100;
@@ -87,12 +83,14 @@ span {
 	font-size: 12px;
 }
 
+/*
 a {
 	color: #333;
 	font-size: 14px;
 	text-decoration: none;
 	margin: 15px 0;
 }
+*/
 
 button-signup {
 	border-radius: 20px;
@@ -120,7 +118,7 @@ button.ghost {
 	border-color: #FFFFFF;
 }
 
-form {
+.form-signup {
 	background-color: #FFFFFF;
 	display: flex;
 	align-items: center;
