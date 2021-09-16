@@ -9,19 +9,21 @@ import { Roles } from 'meteor/alanning:roles';
 /** The NavBar appears at the top of every page. Rendered by the App Layout component. */
 class NavBar extends React.Component {
   render() {
-    const menuStyle = {
-      marginBottom: '10px',
-      backgroundColor: '#1D3E66',
-      color: 'white',
-    };
+    const menuStyle = { marginBottom: '30px',backgroundColor:'#1D3E66', backgroundSize:"content" };
     return (
         <Menu style={menuStyle} attached="top" borderless inverted>
           <Menu.Item as={NavLink} activeClassName="" exact to="/">
             <Header inverted as='h1'>MINERVA</Header>
           </Menu.Item>
           {this.props.currentUser ? (
-              [<Menu.Item as={NavLink} activeClassName="active" exact to="/add" key='add'>Add Stuff</Menu.Item>,
-                <Menu.Item as={NavLink} activeClassName="active" exact to="/list" key='list'>List Stuff</Menu.Item>]
+              [
+                <Menu.Item as={NavLink} activeClassName="active" exact to="/addinventory" key='add'> Add to Inventory<Icon name='plus'/></Menu.Item>,
+                <Menu.Item as={NavLink} activeClassName="active" exact to="/dispense" key='dispense'>
+                Dispense Inventory<Icon name="pills"/></Menu.Item>,
+                <Menu.Item as={NavLink} activeClassName="active" exact to="/status" key='status'>
+                  Inventory Status</Menu.Item>,
+                <Menu.Item as={NavLink} activeClassName="active" exact to="/dispenseLog" key='dispenseLog'>
+                  Dispense Log</Menu.Item>,]
           ) : ''}
           {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
               <Menu.Item as={NavLink} activeClassName="active" exact to="/admin" key='admin'>Admin</Menu.Item>
@@ -50,7 +52,6 @@ class NavBar extends React.Component {
                 </Menu.Menu>
             )}
         </Menu>
-
     );
   }
 }

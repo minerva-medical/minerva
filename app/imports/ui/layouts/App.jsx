@@ -15,7 +15,11 @@ import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
+import AddInventory from '../pages/AddInventory';
 import DrugPage from '../pages/DrugPage';
+import Dispense from '../pages/Dispense';
+import Status from '../pages/Status';
+import DispenseLog from '../pages/DispenseLog';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -29,6 +33,10 @@ class App extends React.Component {
               <ProtectedRoute path="/list" component={ListStuff}/>
               <ProtectedRoute path="/drugpage" component={DrugPage}/>
               <ProtectedRoute path="/add" component={AddStuff}/>
+              <ProtectedRoute path="/dispense" component={Dispense}/>
+              <ProtectedRoute path="/addinventory" component={AddInventory}/>
+              <ProtectedRoute path="/status" component={Status}/>
+              <ProtectedRoute path="/dispenseLog" component={DispenseLog}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
               <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
               <Route component={NotFound}/>
