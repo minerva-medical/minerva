@@ -47,7 +47,6 @@
   width: 100% !important;
 }
 
-<<<<<<< HEAD
 /*overlay test*/
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
@@ -261,5 +260,3 @@ input {
 .container.right-panel-active .overlay-right {
 	transform: translateX(20%);
 }
-=======
->>>>>>> main

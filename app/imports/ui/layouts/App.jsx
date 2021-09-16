@@ -29,7 +29,6 @@ class App extends React.Component {
             <NavBar/>
             <Switch>
               <Route path="/signin" component={Signin}/>
-              <Route path="/signup" component={Signup}/>
               <ProtectedRoute path="/list" component={ListStuff}/>
               <ProtectedRoute path="/drugpage" component={DrugPage}/>
               <ProtectedRoute path="/add" component={AddStuff}/>
@@ -49,6 +48,7 @@ class App extends React.Component {
         <Router>
           <Switch>
             <Route exact path="/" component={Landing}/>
+            <Route path="/signup" component={Signup}/>
             <ProtectedRoute path="/signout" component={Signout}/>
             <Route component={LoggedInRoutes}/>
             <Route component={NotFound}/>

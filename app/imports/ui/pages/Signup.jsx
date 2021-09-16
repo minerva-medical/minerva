@@ -43,17 +43,22 @@ class Signup extends React.Component {
       <div className="body-signup">
       <div className="container-sign" id="container">
       <div className="form-container sign-up-container">
-        <form onSubmit={this.submit}>
+        <Form onSubmit={this.submit}>
           <h1 className="h1-signup">Create Account</h1>
           <Segment stacked>
           <span>or use your email for registration</span>
-          
-          <input type="text" placeholder="Name" />
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
-          <Button content="Submit">Sign Up</Button>
+          <Form.Field>
+            <Form.Input type="username" name="username" placeholder="Username"  onChange={this.handleChange}/>
+          </Form.Field>
+          <Form.Field>
+            <Form.Input type="email" name="email" placeholder="Email"  onChange={this.handleChange}/>
+          </Form.Field>
+          <Form.Field>
+            <Form.Input type="password" name="password" placeholder="Password"  onChange={this.handleChange}/>
+          </Form.Field>
+          <Form.Button id="signup-form-submit" content="Submit"/>
           </Segment>
-        </form>
+        </Form>
       </div> 
       <div className="overlay-container">
         <div className="overlay">
