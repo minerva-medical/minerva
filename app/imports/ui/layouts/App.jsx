@@ -30,7 +30,6 @@ class App extends React.Component {
             <NavBar/>
             <Switch>
               <Route path="/signin" component={Signin}/>
-              <Route path="/signup" component={Signup}/>
               <Route path="/about" component={About}/>
               <ProtectedRoute path="/list" component={ListStuff}/>
               <ProtectedRoute path="/drugpage" component={DrugPage}/>
@@ -52,6 +51,7 @@ class App extends React.Component {
         <Router>
           <Switch>
             <Route exact path="/" component={Landing}/>
+            <Route path="/signup" component={Signup}/>
             <ProtectedRoute path="/signout" component={Signout}/>
             <Route component={LoggedInRoutes}/>
             <Route component={NotFound}/>
@@ -117,5 +117,8 @@ AdminProtectedRoute.propTypes = {
   ]),
   location: PropTypes.object,
 };
+
+
+
 
 export default App;
