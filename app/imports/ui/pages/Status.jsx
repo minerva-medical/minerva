@@ -134,7 +134,12 @@ class Status extends React.Component {
                     <Table.HeaderCell
                         width={3}
                     >
-                      Medicine
+                      Medication
+                    </Table.HeaderCell>
+                    <Table.HeaderCell
+                        width={3}
+                    >
+                      Brand
                     </Table.HeaderCell>
                     <Table.HeaderCell
                         width={3}
@@ -152,6 +157,11 @@ class Status extends React.Component {
                       LotId
                     </Table.HeaderCell>
                     <Table.HeaderCell
+                        width={3}
+                    >
+                      Expiration
+                    </Table.HeaderCell>
+                    <Table.HeaderCell
                         width={1}
                     >
                       Status
@@ -160,9 +170,16 @@ class Status extends React.Component {
                   <Table.Row>
                     <Table.Cell>Analgesics/Anti-inflammatory</Table.Cell>
                     <Table.Cell>Acetaminophen 500 mg Caps</Table.Cell>
+                    <Table.Cell>Tylenol</Table.Cell>
                     <Table.Cell>Case 4</Table.Cell>
                     <Table.Cell>60</Table.Cell>
-                    <Table.Cell>12332A33</Table.Cell>
+                    <Table.Cell>
+                      12332A33
+                      <Dropdown
+                          inline={true}
+                      />
+                    </Table.Cell>
+                    <Table.Cell>11/15/2024</Table.Cell>
                     <Table.Cell textAlign='center'>
                       <Icon color='green' name='circle'/>
                     </Table.Cell>
@@ -170,9 +187,16 @@ class Status extends React.Component {
                   <Table.Row>
                     <Table.Cell>Analgesics/Anti-inflammatory</Table.Cell>
                     <Table.Cell>Acetaminophen 160mg/5 ml Susp</Table.Cell>
+                    <Table.Cell>Tylenol</Table.Cell>
                     <Table.Cell>Case 4</Table.Cell>
                     <Table.Cell>2</Table.Cell>
-                    <Table.Cell>123AN413</Table.Cell>
+                    <Table.Cell>
+                      123AN413
+                      <Dropdown
+                          inline={true}
+                      />
+                    </Table.Cell>
+                    <Table.Cell>12/01/2021</Table.Cell>
                     <Table.Cell textAlign='center'>
                       <Icon color='yellow' name='circle'/>
                     </Table.Cell>
@@ -180,9 +204,16 @@ class Status extends React.Component {
                   <Table.Row>
                     <Table.Cell>Analgesics/Anti-inflammatory</Table.Cell>
                     <Table.Cell>Acetaminophen Infant Drops</Table.Cell>
+                    <Table.Cell>Tylenol</Table.Cell>
                     <Table.Cell>Case 4</Table.Cell>
                     <Table.Cell>0</Table.Cell>
-                    <Table.Cell>6336AG46</Table.Cell>
+                    <Table.Cell>
+                      6336AG46
+                      <Dropdown
+                          inline={true}
+                      />
+                    </Table.Cell>
+                    <Table.Cell>01/09/2022</Table.Cell>
                     <Table.Cell textAlign='center'>
                       <Icon color='red' name='circle'/>
                     </Table.Cell>
@@ -190,9 +221,16 @@ class Status extends React.Component {
                   <Table.Row>
                     <Table.Cell>Pulmonary</Table.Cell>
                     <Table.Cell>Steroid Inhaler</Table.Cell>
+                    <Table.Cell>Fluticasone </Table.Cell>
                     <Table.Cell>Case 1</Table.Cell>
                     <Table.Cell>1</Table.Cell>
-                    <Table.Cell>A6326853</Table.Cell>
+                    <Table.Cell>
+                      A6326853
+                      <Dropdown
+                          inline={true}
+                      />
+                    </Table.Cell>
+                    <Table.Cell>01/05/2022</Table.Cell>
                     <Table.Cell textAlign='center'>
                       <Icon color='yellow' name='circle'/>
                     </Table.Cell>
@@ -200,9 +238,16 @@ class Status extends React.Component {
                   <Table.Row>
                     <Table.Cell>Pulmonary</Table.Cell>
                     <Table.Cell>Steroid/Long Acting Beta Agonist (Adult)</Table.Cell>
+                    <Table.Cell>Advair</Table.Cell>
                     <Table.Cell>Case 1</Table.Cell>
                     <Table.Cell>3</Table.Cell>
-                    <Table.Cell>A0492792</Table.Cell>
+                    <Table.Cell>
+                      A0492792
+                      <Dropdown
+                          inline={true}
+                      />
+                    </Table.Cell>
+                    <Table.Cell>04/02/2022</Table.Cell>
                     <Table.Cell textAlign='center'>
                       <Icon color='green' name='circle'/>
                     </Table.Cell>
@@ -210,9 +255,16 @@ class Status extends React.Component {
                   <Table.Row>
                     <Table.Cell>Diabetes Meds</Table.Cell>
                     <Table.Cell>Glucose Tablets</Table.Cell>
+                    <Table.Cell>Dex4</Table.Cell>
                     <Table.Cell>Case 8</Table.Cell>
                     <Table.Cell>130</Table.Cell>
-                    <Table.Cell>A0498093</Table.Cell>
+                    <Table.Cell>
+                      A0498093
+                      <Dropdown
+                          inline={true}
+                      />
+                    </Table.Cell>
+                    <Table.Cell>06/01/2023</Table.Cell>
                     <Table.Cell textAlign='center'>
                       <Icon color='green' name='circle'/>
                     </Table.Cell>
@@ -220,9 +272,16 @@ class Status extends React.Component {
                   <Table.Row>
                     <Table.Cell>Diabetes Meds</Table.Cell>
                     <Table.Cell>DPP-4 Inhibitors (Sitagliptin 100 mg)</Table.Cell>
+                    <Table.Cell>Janumet XR</Table.Cell>
                     <Table.Cell>Case 8</Table.Cell>
                     <Table.Cell>100</Table.Cell>
-                    <Table.Cell>A0490626</Table.Cell>
+                    <Table.Cell>
+                      A0490626
+                      <Dropdown
+                          inline={true}
+                      />
+                    </Table.Cell>
+                    <Table.Cell>08/22/2024</Table.Cell>
                     <Table.Cell textAlign='center'>
                       <Icon color='green' name='circle'/>
                     </Table.Cell>
@@ -230,9 +289,16 @@ class Status extends React.Component {
                   <Table.Row>
                     <Table.Cell>Diabetes Meds</Table.Cell>
                     <Table.Cell>SGLT2 Inhibitors/DPP4 Inhibitor (10mg/5mg)</Table.Cell>
+                    <Table.Cell>Glyxambi</Table.Cell>
                     <Table.Cell>Case 8</Table.Cell>
                     <Table.Cell>58</Table.Cell>
-                    <Table.Cell>A0498627</Table.Cell>
+                    <Table.Cell>
+                      A0498627
+                      <Dropdown
+                          inline={true}
+                      />
+                    </Table.Cell>
+                    <Table.Cell>07/30/2023</Table.Cell>
                     <Table.Cell textAlign='center'>
                       <Icon color='green' name='circle'/>
                     </Table.Cell>
@@ -240,9 +306,16 @@ class Status extends React.Component {
                   <Table.Row>
                     <Table.Cell>Allergy & Cold Medicines</Table.Cell>
                     <Table.Cell>Diphenhydramine Soln</Table.Cell>
+                    <Table.Cell>Advil</Table.Cell>
                     <Table.Cell>Case 2</Table.Cell>
                     <Table.Cell>1</Table.Cell>
-                    <Table.Cell>A0495673</Table.Cell>
+                    <Table.Cell>
+                      A0495673
+                      <Dropdown
+                          inline={true}
+                      />
+                    </Table.Cell>
+                    <Table.Cell>06/15/2022</Table.Cell>
                     <Table.Cell textAlign='center'>
                       <Icon color='red' name='circle'/>
                     </Table.Cell>
@@ -250,9 +323,16 @@ class Status extends React.Component {
                   <Table.Row>
                     <Table.Cell>Allergy & Cold Medicines</Table.Cell>
                     <Table.Cell>Sore Throat Spray</Table.Cell>
+                    <Table.Cell>Chloraseptic</Table.Cell>
                     <Table.Cell>Case 6</Table.Cell>
                     <Table.Cell>1</Table.Cell>
-                    <Table.Cell>A0496798</Table.Cell>
+                    <Table.Cell>
+                      A0496798
+                      <Dropdown
+                          inline={true}
+                      />
+                    </Table.Cell>
+                    <Table.Cell>09/23/2021</Table.Cell>
                     <Table.Cell textAlign='center'>
                       <Icon color='red' name='circle'/>
                     </Table.Cell>
