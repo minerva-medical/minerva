@@ -113,11 +113,11 @@ class DispenseLog extends React.Component {
                 </Table.Row>
                 <Table.Row>
                   <Table.Cell>2021-09-13 (12:25:30)</Table.Cell>
-                  <Table.Cell>Expired</Table.Cell>
-                  <Table.Cell>Acetaminophen 500 mg Caps</Table.Cell>
-                  <Table.Cell>Tylenol</Table.Cell>
-                  <Table.Cell>60</Table.Cell>
-                  <Table.Cell>janedoe@hawaii.edu</Table.Cell>
+                  <Table.Cell>Patient Use</Table.Cell>
+                  <Table.Cell>Cold and Flu Syrup</Table.Cell>
+                  <Table.Cell>NyQuil</Table.Cell>
+                  <Table.Cell>355 mL</Table.Cell>
+                  <Table.Cell>johndoe@hawaii.edu</Table.Cell>
                 </Table.Row>
                 <Table.Row>
                   <Table.Cell>2021-09-13 (12:25:30)</Table.Cell>

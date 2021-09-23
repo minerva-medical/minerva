@@ -177,14 +177,16 @@ class Dispense extends React.Component {
                     </Form.TextArea>
                   </Grid.Column>
                 </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column>
+                    <Button type='submit' text style={{ marginTop: '1em' }}
+                            color="red" size='medium' inverted>Clear Fields</Button>
+                    <Button type='submit' text style={{ marginTop: '1em' }}
+                            color="green" size='medium' floated="right" >Submit</Button>
+                  </Grid.Column>
+                </Grid.Row>
               </Grid>
             </Segment>
-            <div className='buttons-div'>
-              <Button type='submit' text style={{ marginTop: '1em' }}
-                      color="red" size='medium' inverted>Clear Fields</Button>
-              <Button type='submit' text style={{ marginTop: '1em' }}
-                      color="green" size='medium' floated="right" >Submit</Button>
-            </div>
           </Form>
         </Container>
     );
